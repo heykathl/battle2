@@ -7,4 +7,5 @@ group :test, :development do
   gem 'sinatra'
   gem 'sinatra-contrib'
   gem 'rack'
+  gem 'capybara'
 end
