@@ -29,7 +29,7 @@ class Battle < Sinatra::Base
 
   post '/attack' do
     session[:message] = "#{$player_1.name} attacked #{$player_2.name}!"
-    $player_1.attacks(player: $player_2, with_damage: 10)
+    Game.new.attack(player: $player_2, damage: 10)
     redirect '/play'
   end
 
