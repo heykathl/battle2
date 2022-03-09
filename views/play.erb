@@ -1,6 +1,24 @@
-<head><h1>Play Battle</h1></head>
 
-<h3>
-<div><%= @player1 %> vs <%= @player2 %></div>
-</h3>
+<head><h1 style='text-align:center'>Play Battle</h1></head>
 
+<style>
+  td {
+    
+  }
+</style>
+
+<body>
+
+  <table class='hp' style="width:30%;margin-left:auto;margin-right:auto">
+    <tr style="text-align:center">
+      <th><%= @player1 %></th>
+      <th>v</th>
+      <th><%= @player2 %></th>
+    </tr>
+    <tr style="text-align:center">
+      <td style="border: 1px solid black" name='p1_hp'>HP 000</td>
+      <td></td>
+      <td style="border: 1px solid black" name='p2_hp'>HP 100</td>
+    </tr>
+  </table>
+</body>
