@@ -22,11 +22,14 @@ class Battle < Sinatra::Base
     @player1 = $player_1.name
     @player2 = $player_2.name
     @message = session[:message]
+    @player1_hp = $player_1.hp
+    @player2_hp = $player_2.hp
     erb :play
   end
 
   post '/attack' do
-    session[:message] = "Lats attacked Cats!"
+    session[:message] = "#{$player_1.name} attacked #{$player_2.name}!"
+    $player_1.attacks(player: $player_2, with_damage: 10)
     redirect '/play'
   end
 
