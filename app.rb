@@ -20,7 +20,13 @@ class Battle < Sinatra::Base
   get '/play' do 
     @player1 = session[:player_1]
     @player2 = session[:player_2]
+    @message = session[:message]
     erb :play
+  end
+
+  post '/attack' do
+    session[:message] = "Lats attacked Cats!"
+    redirect '/play'
   end
 
 

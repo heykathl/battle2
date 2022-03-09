@@ -1,6 +1,10 @@
 
 <head><h1 style='text-align:center'>Play Battle</h1></head>
-
+<br>
+<br>
+<h3 style='text-align:center;color:rgb(230, 80, 80)'><%= @message%></h3>
+<br>
+<br>
 <body style="background-color:powderblue;">
 
   <table class='hp' style="width:30%;margin-left:auto;margin-right:auto">
@@ -10,9 +14,15 @@
       <th><%= @player2 %></th>
     </tr>
     <tr style="text-align:center">
-      <td style="background-color:rgb(230, 198, 176);border: 1px solid black" name='p1_hp'>HP 000</td>
+      <td style="background-color:rgb(230, 198, 176);border: 1px rgb(230, 198, 176)" name='p1_hp'>HP 000</td>
       <td></td>
-      <td style="background-color:rgb(206, 240, 174);border: 1px solid black" name='p2_hp'>HP 100</td>
+      <td style="background-color:rgb(206, 240, 174);border: 1px rgb(206, 240, 174)" name='p2_hp'>HP 100</td>
     </tr>
   </table>
+  <br>
+  <div style='text-align:center'>
+  <form action='/attack' method='post'>
+  <input style="background-color:rgb(230, 113, 113);border: 1px rgb(230, 113, 113)" type='submit' value='ATTACK'>  
+  </form>
+  </div>
 </body>
