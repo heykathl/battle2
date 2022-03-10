@@ -23,13 +23,15 @@ class Battle < Sinatra::Base
 
   get '/play' do 
     @game = $game
-    @message = session[:message]
+    @arena_message = session[:arena_message]
+    @turn_message = $game.turn_message
     erb :play
   end
 
   post '/attack' do
-    session[:message] = "#{$game.player1.name} attacked #{$game.player2.name}!"
-    $game.attack(player: $game.player2, damage: 10)
+    session[:arena_message] = $game.attack_message
+    $game.attack(damage: 10)
+    # session[:turn_message] = $game.turn_message
     redirect '/play'
   end
 

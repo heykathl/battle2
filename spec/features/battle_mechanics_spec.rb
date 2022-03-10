@@ -21,4 +21,11 @@ feature 'attacking' do
     expect(page).to have_css('.hp', text: 'HP 90')
   end
 
+  scenario 'switches players after a turn' do
+    sign_in_and_play
+    click_on 'ATTACK'
+    expect(page).to have_content("Cats, it's your turn to attack!")
+  end
+
+
 end

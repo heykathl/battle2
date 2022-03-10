@@ -44,6 +44,9 @@ GEM
       rspec-support (~> 3.11.0)
     rspec-support (3.11.0)
     ruby2_keywords (0.0.5)
+    ruby_parser (3.18.1)
+      sexp_processor (~> 4.16)
+    sexp_processor (4.16.0)
     sinatra (2.2.0)
       mustermann (~> 1.0)
       rack (~> 2.2)
@@ -58,6 +61,9 @@ GEM
     tilt (2.0.10)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    xumlidot (0.1.0)
+      ruby_parser
+      sexp_processor
 
 PLATFORMS
   arm64-darwin-21
@@ -69,6 +75,7 @@ DEPENDENCIES
   rspec
   sinatra
   sinatra-contrib
+  xumlidot
 
 BUNDLED WITH
    2.3.8

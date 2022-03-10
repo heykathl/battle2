@@ -8,4 +8,5 @@ group :test, :development do
   gem 'sinatra-contrib'
   gem 'rack'
   gem 'capybara'
+  gem 'xumlidot'
 end

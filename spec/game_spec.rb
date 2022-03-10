@@ -8,12 +8,20 @@ describe Game do
     @game = Game.new(lats, cats)
   end
 
-  context 'hit points' do
+  context 'attack' do
     
-    it "damages player" do
-      expect(lats).to receive(:receive_damage)
-      @game.attack(player: lats, damage: 10)
+    it "attacks and damages player" do
+      expect(cats).to receive(:receive_damage)
+      @game.attack(damage: 10)
     end
+
+    it "returns attack message" do
+      expect(@game.attack_message).to eq "Lats attacked Cats!"
+    end
+    
+    it "return turn message after attack" do
+      expect(@game.turn_message).to eq "Lats, it's your turn to attack!"
+    end 
 
   end 
 
@@ -25,4 +33,5 @@ describe Game do
     end
 
   end
+  
 end
