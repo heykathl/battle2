@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/player'
+require './lib/game.rb'
 
 class Battle < Sinatra::Base
   enable :sessions
@@ -13,27 +14,24 @@ class Battle < Sinatra::Base
   end
   
   post '/names' do
-    $player_1 = Player.new(params[:player_1])
-    $player_2 = Player.new(params[:player_2])
+    $game = Game.new(
+      Player.new(params[:player_1]),
+      Player.new(params[:player_2])
+    )
     redirect '/play'
   end
 
   get '/play' do 
-    @player1 = $player_1.name
-    @player2 = $player_2.name
+    @game = $game
     @message = session[:message]
-    @player1_hp = $player_1.hp
-    @player2_hp = $player_2.hp
     erb :play
   end
 
   post '/attack' do
-    session[:message] = "#{$player_1.name} attacked #{$player_2.name}!"
-    Game.new.attack(player: $player_2, damage: 10)
+    session[:message] = "#{$game.player1.name} attacked #{$game.player2.name}!"
+    $game.attack(player: $game.player2, damage: 10)
     redirect '/play'
   end
-
-
 
   run! if app_file == $0
 end
