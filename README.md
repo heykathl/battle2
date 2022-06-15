@@ -1,5 +1,5 @@
 # Battle
-=============
+
 A two-player web game, with each player inflicting damage and reduce hitpoints.
 
 ## Features
